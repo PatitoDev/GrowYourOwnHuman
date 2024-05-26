@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ke1rb2o0g7n"]
+
+[ext_resource type="PackedScene" uid="uid://d185xelpgke56" path="res://Scenes/MicroscopeScene/MicroscopeScene.tscn" id="1_eoket"]
+
+[node name="Main" type="Node2D"]
+
+[node name="MicroscopeScene" parent="." instance=ExtResource("1_eoket")]

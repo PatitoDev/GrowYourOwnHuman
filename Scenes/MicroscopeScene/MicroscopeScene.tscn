@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d185xelpgke56"]
+
+[ext_resource type="Texture2D" uid="uid://grl2vnxs7kov" path="res://Images/microscopeUI.png" id="1_0vr76"]
+[ext_resource type="PackedScene" uid="uid://bwpqdp0trqokw" path="res://Scenes/CultiveViewScene/CultiveViewScene.tscn" id="1_bgusn"]
+[ext_resource type="Script" path="res://Scenes/MicroscopeScene/MicroscopeScene.gd" id="1_k5ycg"]
+
+[node name="MicroscopeScene" type="Node2D"]
+script = ExtResource("1_k5ycg")
+
+[node name="CultiveViewScene" parent="." instance=ExtResource("1_bgusn")]
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+ignore_rotation = false
+
+[node name="MicroscopeUi" type="Sprite2D" parent="Camera"]
+texture = ExtResource("1_0vr76")
+centered = false

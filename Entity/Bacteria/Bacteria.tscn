@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl7honlbywtjk"]
+
+[ext_resource type="Script" path="res://Entity/Bacteria/Bacteria.gd" id="1_jtjeg"]
+[ext_resource type="Texture2D" uid="uid://30hqa6u0klqq" path="res://Images/bacteriaSprites.png" id="2_av5of"]
+[ext_resource type="PackedScene" uid="uid://dw46kcnmwnpqo" path="res://Entity/Citosol/Citosol.tscn" id="3_vg881"]
+
+[node name="Bacteria" type="CharacterBody2D"]
+script = ExtResource("1_jtjeg")
+
+[node name="BacteriaSprites" type="Sprite2D" parent="."]
+modulate = Color(0.713726, 0.494118, 1, 1)
+texture = ExtResource("2_av5of")
+vframes = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-45, -18, -38, -23, -26, -27, -11, -34, 8, -38, 12, -29, 30, -41, 44, -30, 49, -14, 53, 2, 33, 19, 13, 39, -15, 41, -37, 29, -48, 17, -53, -7)
+
+[node name="CitosolContainer" type="Node2D" parent="."]
+
+[node name="Citosol" parent="CitosolContainer" instance=ExtResource("3_vg881")]
+position = Vector2(-20, -1)
+
+[node name="Citosol2" parent="CitosolContainer" instance=ExtResource("3_vg881")]
+position = Vector2(-2, -16)
+
+[node name="Citosol3" parent="CitosolContainer" instance=ExtResource("3_vg881")]
+position = Vector2(27, -11)
+
+[node name="Citosol4" parent="CitosolContainer" instance=ExtResource("3_vg881")]
+position = Vector2(5, 12)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-38, -24, -50, -4, -51, 15, -33, 33, -4, 42, 23, 32, 32, 14, 50, 9, 53, -3, 47, -16, 46, -33, 31, -42, 14, -39, -12, -35, -33, -23, -23, -16, -6, -28, 4, -29, 10, -20, 18, -21, 30, -31, 38, -20, 41, -1, 30, 6, 18, 18, 10, 30, -8, 33, -26, 26, -40, 12, -42, -5, -27, -17)
