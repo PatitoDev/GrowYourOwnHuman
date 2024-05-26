@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhpxk5a5g4bob"]
+
+[ext_resource type="Texture2D" uid="uid://2r5b5xbj8hue" path="res://Images/Printer.png" id="1_5mcbh"]
+
+[node name="Printer" type="Node2D"]
+
+[node name="Printer" type="Sprite2D" parent="."]
+texture = ExtResource("1_5mcbh")
+centered = false
+hframes = 4

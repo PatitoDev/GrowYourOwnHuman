@@ -16,3 +16,8 @@ ignore_rotation = false
 [node name="MicroscopeUi" type="Sprite2D" parent="Camera"]
 texture = ExtResource("1_0vr76")
 centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(226, -426, 54, -423, -77, -390, -233, -287, -321, -116, -348, -24, -317, 161, -229, 279, -36, 369, 183, 411, 433, 428, 562, 348, 632, 206, 651, 38, 644, -147, 527, -312, 372, -389, 251, -433, 220, -627, 352, -633, 864, -510, 1132, 210, 671, 953, -382, 918, -868, 296, -815, -457, -405, -609, 211, -623)

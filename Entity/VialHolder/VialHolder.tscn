@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbr31f0adqknj"]
+
+[ext_resource type="Script" path="res://Entity/VialHolder/VialHolder.gd" id="1_m64gl"]
+[ext_resource type="Texture2D" uid="uid://1dhxki003tvn" path="res://Images/VialHolder.png" id="1_vecoj"]
+[ext_resource type="PackedScene" uid="uid://bkb47e5x856an" path="res://Entity/Vial/Vial.tscn" id="3_wun7g"]
+[ext_resource type="Script" path="res://Resource/BacteriaData.gd" id="4_1g0sb"]
+
+[sub_resource type="Resource" id="Resource_qtk2x"]
+script = ExtResource("4_1g0sb")
+color = Color(1, 0, 0, 1)
+size = 2
+shape = 3
+hasHair = false
+
+[sub_resource type="Resource" id="Resource_3ydwp"]
+script = ExtResource("4_1g0sb")
+color = Color(0.831373, 0, 0.937255, 1)
+size = 2
+shape = 3
+hasHair = false
+
+[sub_resource type="Resource" id="Resource_6r6n7"]
+script = ExtResource("4_1g0sb")
+color = Color(1, 0.682353, 0.129412, 1)
+size = 2
+shape = 3
+hasHair = false
+
+[sub_resource type="Resource" id="Resource_ubahc"]
+script = ExtResource("4_1g0sb")
+color = Color(0, 0.623529, 0.52549, 1)
+size = 2
+shape = 3
+hasHair = false
+
+[node name="VialHolder" type="Node2D"]
+script = ExtResource("1_m64gl")
+metadata/_edit_vertical_guides_ = [15.0]
+
+[node name="Back" type="Sprite2D" parent="."]
+texture = ExtResource("1_vecoj")
+centered = false
+vframes = 2
+
+[node name="Vial Container" type="Node2D" parent="."]
+
+[node name="Vial" parent="Vial Container" instance=ExtResource("3_wun7g")]
+position = Vector2(15, -15)
+data = SubResource("Resource_qtk2x")
+
+[node name="Vial2" parent="Vial Container" instance=ExtResource("3_wun7g")]
+position = Vector2(30, -15)
+data = SubResource("Resource_3ydwp")
+
+[node name="Vial3" parent="Vial Container" instance=ExtResource("3_wun7g")]
+position = Vector2(45, -15)
+data = SubResource("Resource_6r6n7")
+
+[node name="Vial4" parent="Vial Container" instance=ExtResource("3_wun7g")]
+position = Vector2(60, -15)
+data = SubResource("Resource_ubahc")
+
+[node name="Front" type="Sprite2D" parent="."]
+texture = ExtResource("1_vecoj")
+centered = false
+vframes = 2
+frame = 1
+
+[node name="VialBottomLimit" type="Marker2D" parent="."]
+position = Vector2(37, 47)
+
+[node name="VialExitLimit" type="Marker2D" parent="."]
+position = Vector2(15, -56)
+
+[node name="ClickArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea"]
+polygon = PackedVector2Array(2, 49, 2, 37, 3, 5, 6, 1, 68, 1, 72, 6, 72, 37, 72, 49)
+
+[connection signal="OnMouseEntered" from="Vial Container/Vial" to="." method="_on_vial_on_mouse_entered"]
+[connection signal="OnMouseExited" from="Vial Container/Vial" to="." method="_on_vial_on_mouse_exited"]
+[connection signal="OnMouseEntered" from="Vial Container/Vial2" to="." method="_on_vial_on_mouse_entered"]
+[connection signal="OnMouseExited" from="Vial Container/Vial2" to="." method="_on_vial_on_mouse_exited"]
+[connection signal="OnMouseEntered" from="Vial Container/Vial3" to="." method="_on_vial_on_mouse_entered"]
+[connection signal="OnMouseExited" from="Vial Container/Vial3" to="." method="_on_vial_on_mouse_exited"]
+[connection signal="OnMouseEntered" from="Vial Container/Vial4" to="." method="_on_vial_on_mouse_entered"]
+[connection signal="OnMouseExited" from="Vial Container/Vial4" to="." method="_on_vial_on_mouse_exited"]
+[connection signal="mouse_entered" from="ClickArea" to="." method="_on_click_area_mouse_entered"]
+[connection signal="mouse_exited" from="ClickArea" to="." method="_on_click_area_mouse_exited"]

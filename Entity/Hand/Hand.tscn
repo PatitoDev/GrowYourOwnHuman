@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://xfi5mfmyevj4"]
+
+[ext_resource type="Texture2D" uid="uid://cu3j0oneqnbvv" path="res://Images/FrogHand.png" id="1_llhta"]
+[ext_resource type="Script" path="res://Entity/Hand/Hand.gd" id="1_mpdkw"]
+
+[node name="Hand" type="Node2D"]
+script = ExtResource("1_mpdkw")
+
+[node name="FrogHand" type="Sprite2D" parent="."]
+position = Vector2(-9, -14)
+texture = ExtResource("1_llhta")
+centered = false
+hframes = 2

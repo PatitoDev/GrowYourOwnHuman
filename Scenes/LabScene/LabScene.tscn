@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmaqh18xw2qq7"]
+
+[ext_resource type="Texture2D" uid="uid://cppfqpk4cufl2" path="res://Images/Desk.png" id="1_3gdaw"]
+[ext_resource type="Script" path="res://Scenes/LabScene/LabScene.gd" id="1_psfvh"]
+[ext_resource type="PackedScene" uid="uid://xfso3pnxq3hd" path="res://Entity/Microscope/Microscope.tscn" id="3_nwkca"]
+[ext_resource type="PackedScene" uid="uid://cmdbaawsepdng" path="res://Entity/Land/Land.tscn" id="4_6ahjm"]
+[ext_resource type="PackedScene" uid="uid://dhpxk5a5g4bob" path="res://Entity/Printer/Printer.tscn" id="4_o8cmi"]
+[ext_resource type="PackedScene" uid="uid://bbr31f0adqknj" path="res://Entity/VialHolder/VialHolder.tscn" id="5_sjsw6"]
+[ext_resource type="PackedScene" uid="uid://xfi5mfmyevj4" path="res://Entity/Hand/Hand.tscn" id="7_f0nop"]
+
+[node name="LabScene" type="Node2D"]
+script = ExtResource("1_psfvh")
+metadata/_edit_horizontal_guides_ = [138.0]
+
+[node name="Desk" type="Sprite2D" parent="."]
+texture = ExtResource("1_3gdaw")
+centered = false
+
+[node name="Desk3" type="Sprite2D" parent="."]
+position = Vector2(-320, 0)
+texture = ExtResource("1_3gdaw")
+centered = false
+
+[node name="Desk2" type="Sprite2D" parent="."]
+position = Vector2(320, 0)
+texture = ExtResource("1_3gdaw")
+centered = false
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CameraLeftLimit" type="Marker2D" parent="."]
+position = Vector2(-320, 0)
+
+[node name="CameraRightLimit" type="Marker2D" parent="."]
+position = Vector2(317, 0)
+
+[node name="Microscope" parent="." instance=ExtResource("3_nwkca")]
+position = Vector2(26, 28)
+
+[node name="Printer" parent="." instance=ExtResource("4_o8cmi")]
+position = Vector2(306, 79)
+
+[node name="Land" parent="." instance=ExtResource("4_6ahjm")]
+position = Vector2(211, 113)
+
+[node name="VialHolder" parent="." instance=ExtResource("5_sjsw6")]
+position = Vector2(129, 89)
+
+[node name="GrabbedContainer" type="Node2D" parent="."]
+
+[node name="Hand" parent="." instance=ExtResource("7_f0nop")]
+position = Vector2(152, 47)
+
+[connection signal="OnClick" from="Microscope" to="." method="_on_microscope_on_click"]
+[connection signal="OnClick" from="Land" to="." method="_on_land_on_click"]
+[connection signal="OnMix" from="VialHolder" to="." method="_on_vial_holder_on_mix"]
+[connection signal="OnStore" from="VialHolder" to="." method="_on_vial_holder_on_store"]
+[connection signal="OnVialGrabbed" from="VialHolder" to="." method="_on_vial_holder_on_vial_grabbed"]
